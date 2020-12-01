@@ -89,6 +89,7 @@ function alpha_protected_title_change(){
 }
 add_filter("protected_title_format","alpha_protected_title_change");
 
+
 function alpha_menu_item_class($classes, $item){
 	$classes[] = "list-inline-item";
 	return $classes;
