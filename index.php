@@ -1,10 +1,10 @@
-<?php 
+<?php
 get_header();
 ?>
 <body <?php body_class(); ?>>
 <?php get_template_part("/template-parts/common/hero");?>
 <div class="posts">
-	<?php 
+	<?php
 		while (have_posts()) {
 			the_post();
 			?>
@@ -28,7 +28,7 @@ get_header();
                 </div>
                 <div class="col-md-8">
                     <p>
-                        <?php 
+                        <?php
                          if (has_post_thumbnail()) {
 		                        	// $thumbnail_url = get_the_post_thumbnail_url( null,"large");
 		                        	// echo '<a href="'.$thumbnail_url.'" data-featherlight="myimage.png">';
@@ -46,21 +46,22 @@ get_header();
 
                         ?>
                     </p>
-                    
+
                 </div>
             </div>
 
         </div>
     </div>
-		<?php	
+		<?php
 		}
 	 ?>
-    
+
+
     <div class="container mb-4">
     	<div class="row">
     		<div class="col-md-4"></div>
     		<div class="col-md-8">
-    			<?php 
+    			<?php
     				the_posts_pagination(array(
     					"screen_reader_text"=>' ',
     					"prev_text" => "New Posts",

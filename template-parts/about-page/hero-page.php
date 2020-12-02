@@ -1,7 +1,5 @@
-<?php 
-$alpha_feat_image = get_the_post_thumbnail_url(null, "lagre");
- ?>
-<div class="header page-header" style="background-image: url(<?php echo $alpha_feat_image; ?>)">
+
+<div class="header page-header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -12,7 +10,6 @@ $alpha_feat_image = get_the_post_thumbnail_url(null, "lagre");
                 	<a href="<?php echo get_site_url();?>"><?php bloginfo("name"); ?></a>
                 </h1>
             </div>
-            
         </div>
     </div>
 </div>
@@ -20,7 +17,7 @@ $alpha_feat_image = get_the_post_thumbnail_url(null, "lagre");
     <div class="row">
         <div class="col-md-12">
                 <div class="navigation">
-                    <?php 
+                    <?php
                         wp_nav_menu( array(
                             'theme_location'  => 'topmenu',
                             'menu_id'         => 'topmenucontainer',
