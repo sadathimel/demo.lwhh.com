@@ -85,3 +85,10 @@ h1.heading {
             color: white;
             text-decoration: none;
         }
+
+        .header-logo{
+            margin-top: 50px;
+        }
+        .header-logo img{
+            border-radius: 50px;
+        }
