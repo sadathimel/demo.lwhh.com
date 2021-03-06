@@ -32,8 +32,8 @@ function alpha_sidebar() {
             'description'   => __( 'Widgetized Area On The Left Side', 'alpha' ),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'before_title'  => '',
+            'after_title'   => '',
         )
     );
     register_sidebar(
@@ -43,8 +43,8 @@ function alpha_sidebar() {
             'description'   => __( 'Widgetized Area On The Right Side', 'alpha' ),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'before_title'  => '',
+            'after_title'   => '',
         )
     );
 }
