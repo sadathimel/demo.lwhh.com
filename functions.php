@@ -25,6 +25,9 @@ function alpha_bootstrapping(){
         "height" => "100"
     );
     add_theme_support( "custom-logo", $alpha_custom_logo_defaults );
+
+    add_theme_support("custom-background");
+
     register_nav_menu( "topmenu", __("Top menu", "alpha"));
     register_nav_menu( "footermenu", __("Footer menu", "alpha"));
 }
