@@ -42,7 +42,7 @@
                                                 the_post_thumbnail("large", array("class"=>"img-fluid") );
                                                 echo '</a>';
                                             }
-                                                            the_content( );
+                                            the_content( );
 
                                             next_post_link();
 
