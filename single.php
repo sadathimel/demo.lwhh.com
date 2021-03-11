@@ -11,7 +11,7 @@
                         the_post();
                         ?>
 
-                        <div class="post <?php post_class(); ?>">
+                        <div <?php post_class(); ?>>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -39,7 +39,10 @@
                                             }
                                                 the_content( );
 
+                                                wp_link_pages( );
+
                                             ?>
+
                                         </p>
                                     </div>
 
