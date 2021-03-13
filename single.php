@@ -46,6 +46,19 @@
                                         </p>
                                     </div>
 
+                                    <div class="authorsection">
+                                        <div class="row">
+                                            <div class="col-md-3 authorimage">
+                                                <?php 
+                                                    echo get_avatar( get_the_author_meta("id") ); 
+                                                ?>
+                                            </div>
+                                            <div class="col-md-9">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <?php if (comments_open()): ?>
                                         <div class="col-md-10 offset-md-1">
                                             <?php 

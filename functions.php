@@ -14,7 +14,8 @@ function alpha_bootstrapping(){
 
     register_nav_menu( "topmenu", __("Top menu", "alpha"));
     register_nav_menu( "footermenu", __("Footer menu", "alpha"));
-    add_theme_support("post-formats",array("image","quote","video","audio","link"));
+    add_theme_support( "post-formats",array("image","quote","video","audio","link"));
+    
 
     $alpha_custom_header_details = array(
         'header-text'            => true,
