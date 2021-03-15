@@ -16,6 +16,7 @@ function alpha_bootstrapping(){
     register_nav_menu( "topmenu", __("Top menu", "alpha"));
     register_nav_menu( "footermenu", __("Footer menu", "alpha"));
     
+    
 
     $alpha_custom_header_details = array(
         'header-text'            => true,
