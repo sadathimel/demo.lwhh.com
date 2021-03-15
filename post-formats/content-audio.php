@@ -15,7 +15,7 @@
                     </p>
                     <?php echo get_the_tag_list("<ul class=\"list-unstyled\"><li>","</li><li>","</li></ul>");?>
 
-                    <span class="dashicons dashicons-editor-quote"></span>
+                    <span class="dashicons dashicons-format-audio"></span>
                     
                 </div>
                 <div class="col-md-8">

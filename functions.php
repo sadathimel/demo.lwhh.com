@@ -6,6 +6,7 @@ if (site_url()=="http://demo.lwhh.com") {
     define("VERSION",wp_get_theme()->get("Version"));
 }
 
+
 function alpha_bootstrapping(){
     load_theme_textdomain("alpha");
     add_theme_support("post-thumbnails");
@@ -14,7 +15,6 @@ function alpha_bootstrapping(){
 
     register_nav_menu( "topmenu", __("Top menu", "alpha"));
     register_nav_menu( "footermenu", __("Footer menu", "alpha"));
-    add_theme_support( "post-formats",array("image","quote","video","audio","link"));
     
 
     $alpha_custom_header_details = array(
@@ -32,8 +32,11 @@ function alpha_bootstrapping(){
         "height" => "100"
     );
     add_theme_support( "custom-logo", $alpha_custom_logo_defaults ); 
+
+    add_theme_support('post-formats', array('aside', 'gallery'));
     
 }
+
 add_action("after_setup_theme", "alpha_bootstrapping");
 
 function alpha_assets() {
