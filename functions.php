@@ -34,7 +34,7 @@ function alpha_bootstrapping(){
     );
     add_theme_support( "custom-logo", $alpha_custom_logo_defaults ); 
 
-    add_theme_support('post-formats', array('aside', 'gallery'));
+    add_theme_support('post-formats', array('aside', 'gallery','video','audio','image','link','quate'));
     
 }
 
