@@ -14,20 +14,6 @@
                         <?php echo get_the_date(); ?>
                     </p>
                     <?php echo get_the_tag_list("<ul class=\"list-unstyled\"><li>","</li><li>","</li></ul>");?>
-
-                    <?php
-                        $alpha_formate = get_post_format();
-                        if ($alpha_formate == "audio") {
-                            echo '<span class="dashicons dashicons-editor-quote"></span>';
-                        }else if($alpha_formate == "video"){
-                            echo '<span class="dashicons dashicons-format-video"></span>';
-                        }else if($alpha_formate == "image"){
-                            echo '<span class="dashicons dashicons-format-image"></span>';
-                        }else if($alpha_formate == "quote"){
-                            echo '<span class="dashicons dashicons-format-quote"></span>';
-                        }
-                    ?>
-                    
                 </div>
                 <div class="col-md-8">
                     <p>
