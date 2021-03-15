@@ -1,9 +1,20 @@
+<?php
+    $alpha_layout_class = "col-md-8";
+    $alpha_text = "";
+    if (!is_active_sidebar('sidebar-1')) {
+        $alpha_layout_class = "col-md-10 offset-md-1";
+        $alpha_text = "text-center";
+    }
+?>
+
+
 <?php get_header(); ?>
 <body <?php body_class(); ?>>
 <?php get_template_part( "/template-parts/common/hero" ); ?>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+
+            <div class="<?php echo $alpha_layout_class ?>">
                 <div class="posts">
 
                     <?php
@@ -15,11 +26,11 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h2 class="post-title">
-                                            <?php the_title(); ?>
+                                        <h2 class="post-title <?php echo $alpha_text ?>">
+                                            <?php echo the_title(); ?>
                                         </h2>
 
-                                        <p class="">
+                                        <p class="<?php echo $alpha_text ?>">
                                             <strong><?php the_author(); ?></strong><br/>
                                             <?php echo get_the_date(); ?>
                                         </p>
@@ -48,13 +59,18 @@
 
                                     <div class="authorsection">
                                         <div class="row">
-                                            <div class="col-md-3 authorimage">
+                                            <div class="col-md-2 authorimage">
                                                 <?php 
                                                     echo get_avatar( get_the_author_meta("id") ); 
                                                 ?>
                                             </div>
-                                            <div class="col-md-9">
-                                                
+                                            <div class="col-md-10">
+                                                <h4>
+                                                    <?php echo get_the_author_meta('display_name'); ?>
+                                                </h4>
+                                                <p>
+                                                    <?php echo get_the_author_meta('description'); ?>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -91,6 +107,8 @@
 
                 </div>
             </div>
+            <?php if (is_active_sidebar( "sidebar-1" )){ ?>
+        
             <div class="col-md-4">
                 <?php
                     if(is_active_sidebar('sidebar-1')){
@@ -98,6 +116,7 @@
                     }
                 ?>
             </div>
+        <?php } ?>
         </div>
     </div>
 
