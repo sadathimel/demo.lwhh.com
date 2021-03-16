@@ -12,9 +12,12 @@ get_header();
                 $dateobj = DateTime::createFromFormat("!m",$month);
                 echo $dateobj->format("F");
             }else if (is_year()) {
-                echo get_query_var("year");
+                echo esc_html(get_query_var("year"));
             } else if (is_day()) {
-                echo get_query_var("day"),"/".get_query_var("monthnum")."/".get_query_var("year");
+                $day = esc_html(get_query_var("day"));
+                $month = esc_html(get_query_var("monthnum"));
+                $year = esc_html(get_query_var("year"));
+                printf("%s/%s/%s",$day,$month,$year);
             }
         ?>
     </h1>
@@ -22,7 +25,7 @@ get_header();
 		while (have_posts()) {
 			the_post();
 			?>
-            <h2><a href="<?php the_permalink( ); ?>"><?php the_title(); ?></h2></a>
+            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h2></a>
             <?php
 		}
 	 ?>
