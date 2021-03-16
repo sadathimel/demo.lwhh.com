@@ -108,3 +108,7 @@ h2.post-title {
     font-size: 100px;
     margin-bottom: 40px;
 }
+
+.post h1 {
+    margin: 20px 0;
+}
