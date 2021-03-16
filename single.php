@@ -9,11 +9,11 @@
 
 
 <?php get_header(); ?>
-<body <?php body_class(); ?>>
+<body <?php body_class(array("first-class","second-class")); ?>>
 <?php get_template_part( "/template-parts/common/hero" ); ?>
     <div class="container">
         <div class="row">
-
+   
             <div class="<?php echo $alpha_layout_class ?>">
                 <div class="posts">
 
@@ -22,7 +22,7 @@
                         the_post();
                         ?>
 
-                        <div <?php post_class(); ?>>
+                        <div <?php post_class(array("first-class","second-class")); ?>>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
