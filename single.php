@@ -39,7 +39,25 @@
                                 <div class="row">
 
                                     <div class="col-md-12">
-                                        <p>
+                                        <div class="slider">
+                                            
+                                            <?php $attachments = new Attachments( 'slider' ); 
+                                                if( $attachments->exist() ){ 
+                                              
+                                                 while( $attachment = $attachments->get() ) { ?>
+                                                  
+                                                    <div>
+                                                        <?php echo $attachments->image('large'); ?>
+                                                        
+                                                    </div>
+                                            
+                                                    <?php
+                                                 }
+                                            }
+                                            ?>
+
+                                        </div>
+                                        <div>
                                             <?php
                                             if(has_post_thumbnail()){
                                                 $thumbnail_url = get_the_post_thumbnail_url( null, "large" );
@@ -54,7 +72,7 @@
 
                                             ?>
 
-                                        </p>
+                                        </div>
                                     </div>
 
                                     <div class="authorsection">
