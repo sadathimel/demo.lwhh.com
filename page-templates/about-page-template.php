@@ -32,6 +32,37 @@
                                 </div>
                                 <div class="row">
 
+                                    <div class="row">
+                                        <div class="col-md-8 offset-md-2">
+                                            <h2 class="text-center">
+                                                <?php _e("Testimonials","alpha"); ?>
+                                            </h2>
+                                            <div class="testimonials text-center">
+                                            <?php
+                                                $attachments = new Attachments( 'testimonials' );
+                                                if ( $attachments->exist() ) {
+                                                    while ( $attachment = $attachments->get() ) { ?>
+                                                        <div>
+                                                            <?php echo $attachments->image( 'thumbnail' ); ?>
+                                                            <h4><?php echo esc_html( $attachments->field( 'name' )); ?> </h4>
+                                                            <p><?php echo esc_html( $attachments->field( 'testimonial' )); ?></p>
+                                                            <p>
+                                                                <?php echo esc_html($attachments->field( 'position' )); ?>
+                                                                <strong>
+                                                                    <?php echo esc_html( $attachments->field( 'company')); ?>
+                                                                </strong>
+                                                                    
+                                                            </p>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                }
+                                            
+                                            ?>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-10 offset-md-1">
                                         <p>
                                             <?php

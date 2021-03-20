@@ -1,5 +1,4 @@
 ;(function($){
-	console.log('testing');
 	$(document).ready(function(){
 		 var slider = tns({
 		     container: '.slider',
