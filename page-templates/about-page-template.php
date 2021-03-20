@@ -37,8 +37,10 @@
                                             <h2 class="text-center">
                                                 <?php _e("Testimonials","alpha"); ?>
                                             </h2>
-                                            <div class="testimonials text-center">
+                                            <div class="testimonials slider text-center">
                                             <?php
+                                            if (class_exists("Attachments")) {
+                                                
                                                 $attachments = new Attachments( 'testimonials' );
                                                 if ( $attachments->exist() ) {
                                                     while ( $attachment = $attachments->get() ) { ?>
@@ -57,6 +59,7 @@
                                                         <?php
                                                     }
                                                 }
+                                            }
                                             
                                             ?>
                                             </div>
