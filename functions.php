@@ -31,6 +31,7 @@ function alpha_bootstrapping(){
         'flex-width'             => true
     );
     add_theme_support("custom-header", $alpha_custom_header_details);
+    add_theme_support( 'html5', array( 'search-form' ) );
 
     $alpha_custom_logo_defaults = array(
         "width"  => "100",
