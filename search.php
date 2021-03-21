@@ -6,6 +6,22 @@ get_header();
 <div class="posts">
 	<?php
 
+        if ( !have_posts()) {
+            ?>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                         <h3>
+                            <?php _e('No result found!','alpha'); ?>                    
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <?php
+        }
+
 		while (have_posts()) {
 			the_post();
 			get_template_part("post-formats/content",get_post_format());
