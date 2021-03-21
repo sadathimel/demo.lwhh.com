@@ -34,9 +34,16 @@
 
                                     <div class="row">
                                         <div class="col-md-8 offset-md-2">
+
+                                            <?php 
+                                            $attachments = new Attachments( 'testimonials' );
+                                                if (class_exists("Attachments") && $attachments->exist()) {
+                                            ?>
                                             <h2 class="text-center">
                                                 <?php _e("Testimonials","alpha"); ?>
                                             </h2>
+                                            <?php } ?>
+
                                             <div class="testimonials slider text-center">
                                             <?php
                                             if (class_exists("Attachments")) {
@@ -65,6 +72,36 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <?php 
+                                    if (class_exists("Attachments")) {
+                                    ?>
+                                    <div class="row">
+                                        <?php 
+                                            $attachments = new Attachments( 'team' );
+                                                if ( $attachments->exist() ) {
+                                                    while ( $attachment = $attachments->get() ) { ?>
+                                                        <div class="col-md-4">
+                                                            <?php echo $attachments->image( 'medium' ); ?>
+                                                            <h4><?php echo esc_html( $attachments->field( 'name' )); ?> </h4>
+                                                            <p>
+                                                                <?php echo esc_html($attachments->field( 'position' )); ?>
+                                                                <strong>
+                                                                    <?php echo esc_html( $attachments->field( 'company')); ?>
+                                                                </strong>
+                                                                    
+                                                            </p>
+                                                            <p><?php echo esc_html( $attachments->field( 'bio' )); ?></p>
+                                                            <p><?php echo esc_html( $attachments->field( 'email' )); ?></p>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                }
+                                        ?>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
 
                                     <div class="col-md-10 offset-md-1">
                                         <p>
