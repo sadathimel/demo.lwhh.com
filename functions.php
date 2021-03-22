@@ -40,6 +40,12 @@ function alpha_bootstrapping(){
     add_theme_support( "custom-logo", $alpha_custom_logo_defaults ); 
 
     add_theme_support('post-formats', array('aside', 'gallery','video','audio','images','link','quote'));
+
+    add_image_size('alpha-square', 400, 400, true);
+    add_image_size('alpha-square-new1',401,401,array('left','top'));
+    add_image_size('alpha-square-new2',500,500,array('center','center'));
+    add_image_size('alpha-square-new3',600,600,array('right','center'));
+
     
 }
 
@@ -135,7 +141,7 @@ function alpha_about_page_template_banner(){
     }
 
     if (is_front_page()) {
-        if (current_theme_supports( "custom-header" )) {
+        if (current_theme_supports("custom-header")) {
             ?>
                 <style type="text/css">
                     .header{
@@ -186,3 +192,10 @@ function alpha_highlight_search_results($text){
 add_filter('the_content', 'alpha_highlight_search_results');
 add_filter('the_excerpt', 'alpha_highlight_search_results');
 add_filter('the_title', 'alpha_highlight_search_results');
+
+function alpha_image_srcset(){
+    return null;
+}
+
+add_filter("wp_calculate_image_srcset", "alpha_image_srcset");
+// add_filter("wp_calculate_image_srcset", "__return_null");
