@@ -102,7 +102,7 @@
                                         </div>
                                     </div>
 
-                                    <?php if (comments_open()): ?>
+                                    <?php if (!post_password_required()): ?>
                                         <div class="col-md-10 offset-md-1">
                                             <?php 
                                                 comments_template();
