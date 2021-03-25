@@ -15,12 +15,12 @@ if ( $comments ) {
  ?>
  <div class="container">
 	<div class="media">
-	  <?php echo get_avatar($comment,64,null,null,array(
+	  <?php echo get_avatar($comment,64, null, null,array(
 	  		'class'=>'mr-3'
 	  ));?>
 	  <div class="media-body">
 	    <h5 class="mt-0">
-	    	<?php comment_author($comment); ?>
+	    	<?php comment_author( $comment ); ?>
 	    	<?php edit_comment_link(); ?>
 	    </h5>
 	    <?php 
