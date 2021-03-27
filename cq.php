@@ -10,10 +10,12 @@ get_header();
 <?php get_template_part("/template-parts/common/hero");?>
 <div class="posts text-center">
 	<?php
+    $paged = get_query_var("paged") ? get_query_var("paged") : 1;
     $_p = get_posts(array(
         'posts_per_page' => 2,
-        'post__in'=> array(15,18,9,2,80),
-        'orderby' => 'post__in'
+        'post__in'       => array(15,18,9,2,80),
+        'orderby'        => 'post__in',
+        'paged'          => $paged
     ));
 		foreach ($_p as $post) {
 			setup_postdata($post);
