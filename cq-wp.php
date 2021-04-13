@@ -17,21 +17,27 @@ get_header();
     $_p = new WP_Query( array( 
         // 'category_name'  => 'new',
 
-        'posts_per_page' => $posts_per_page,
-        'paged'          => $paged,
-        'tax-query'      => array( 
-            'relation' => 'OR',
-            array(
-            'taxonomy' => 'category',
-            'field'    => 'slug',
-            'terms'    => array( 'new' )
-        ),
-            array(
-                'taxonomy' => 'post_tag',
-                'field'     => 'slug',
-                'terms' => array('special')
-                 ),
-         )
+        // 'posts_per_page' => $posts_per_page,
+        // 'paged'          => $paged,
+        // 'tax-query'      => array( 
+        //     'relation' => 'OR',
+        //     array(
+        //     'taxonomy' => 'category',
+        //     'field'    => 'slug',
+        //     'terms'    => array( 'new' )
+        // ),
+        //     array(
+        //         'taxonomy' => 'post_tag',
+        //         'field'     => 'slug',
+        //         'terms' => array('special')
+        //          ),
+        //  )
+
+        'month' => 4,
+        'year'  => 2021,
+        'post_status' => 'publish'
+
+
     ) );
 		while ($_p -> have_posts()) {
 			$_p -> the_post()
