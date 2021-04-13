@@ -15,9 +15,23 @@ get_header();
     $posts_per_page = 3;
     $total = 9;
     $_p = new WP_Query( array( 
-        'category_name'  => 'new',
+        // 'category_name'  => 'new',
+
         'posts_per_page' => $posts_per_page,
-        'paged'          => $paged 
+        'paged'          => $paged,
+        'tax-query'      => array( 
+            'relation' => 'OR',
+            array(
+            'taxonomy' => 'category',
+            'field'    => 'slug',
+            'terms'    => array( 'new' )
+        ),
+            array(
+                'taxonomy' => 'post_tag',
+                'field'     => 'slug',
+                'terms' => array('special')
+                 ),
+         )
     ) );
 		while ($_p -> have_posts()) {
 			$_p -> the_post()
