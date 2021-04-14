@@ -19,8 +19,20 @@ get_header();
 
         'posts_per_page' => $posts_per_page,
         'paged'          => $paged,
-        'meta_key'       => 'featured',
-        'meta_value'     => '1',
+        'meta_query'     => $array(
+            'relation'   => 'AND',
+            array(
+                'meta_key'      => 'featured',
+                'meta_value'    => '1',
+                'compare'       => '=' 
+            ),
+            array(
+                'meta_key'      => 'homepage',
+                'meta_value'    => '1'
+                'compare'       => '=' ); 
+        );
+        // 'meta_key'       => 'featured',
+        // 'meta_value'     => '1',
         // 'tax_query'      => array( 
         //     // 'relation' => 'OR',
         //     array(
