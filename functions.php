@@ -213,7 +213,8 @@ function alpha_todays_date() {
 
 function alpha_modify_main_query($wpq) {
     if ($wpq->is_home() && $wpq->is_main_query()) {
-    $wpq -> set("post__not_in",array(75));
+    // $wpq -> set("post__not_in",array(75));
+        $wpq -> set ("tag__not_in", array(8));
     }
 }
 add_action('pre_get_posts', 'alpha_modify_main_query');
