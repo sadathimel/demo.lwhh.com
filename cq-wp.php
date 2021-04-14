@@ -19,23 +19,25 @@ get_header();
 
         'posts_per_page' => $posts_per_page,
         'paged'          => $paged,
-        'tax_query'      => array( 
-            // 'relation' => 'OR',
-            array(
-            'taxonomy' => 'post_format',
-            'field' => 'slug',
-            'terms'    => array( 
-                'post-format-audio',
-                'post-format-video'
-            ),
-            'operator' => 'NOT IN',
-        ),
-            // array(
-            //     'taxonomy' => 'post_tag',
+        'meta_key'       => 'featured',
+        'meta_value'     => '1',
+        // 'tax_query'      => array( 
+        //     // 'relation' => 'OR',
+        //     array(
+        //     'taxonomy' => 'post_format',
+        //     'field' => 'slug',
+        //     'terms'    => array( 
+        //         'post-format-audio',
+        //         'post-format-video'
+        //     ),
+        //     'operator' => 'NOT IN',
+        // ),
+        //     // array(
+        //     //     'taxonomy' => 'post_tag',
             //     'field'     => 'slug',
             //     'terms' => array('special')
             //      ),
-         )
+         // )
 
         // 'monthnum' => 4,
         // 'year'  => 2021,
