@@ -210,3 +210,10 @@ function alpha_todays_date() {
     echo date("Y/m/d");
     }
 }
+
+function alpha_modify_main_query($wpq) {
+    if ($wpq->is_home() && $wpq->is_main_query()) {
+    $wpq -> set("post__not_in",array(75));
+    }
+}
+add_action('pre_get_posts', 'alpha_modify_main_query');
