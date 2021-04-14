@@ -11,31 +11,35 @@ get_header();
 <div class="posts text-center">
 	<?php
     $paged = get_query_var("paged") ? get_query_var("paged") : 1;
-    $posts_ids = array(15,18,9,2,80);
+    // $posts_ids = array(15,18,9,2,80);
     $posts_per_page = 3;
     $total = 9;
     $_p = new WP_Query( array( 
         // 'category_name'  => 'new',
 
-        // 'posts_per_page' => $posts_per_page,
-        // 'paged'          => $paged,
-        // 'tax-query'      => array( 
-        //     'relation' => 'OR',
-        //     array(
-        //     'taxonomy' => 'category',
-        //     'field'    => 'slug',
-        //     'terms'    => array( 'new' )
-        // ),
-        //     array(
-        //         'taxonomy' => 'post_tag',
-        //         'field'     => 'slug',
-        //         'terms' => array('special')
-        //          ),
-        //  )
+        'posts_per_page' => $posts_per_page,
+        'paged'          => $paged,
+        'tax_query'      => array( 
+            // 'relation' => 'OR',
+            array(
+            'taxonomy' => 'post_format',
+            'field' => 'slug',
+            'terms'    => array( 
+                'post-format-audio',
+                'post-format-video'
+            ),
+            'operator' => 'NOT IN',
+        ),
+            // array(
+            //     'taxonomy' => 'post_tag',
+            //     'field'     => 'slug',
+            //     'terms' => array('special')
+            //      ),
+         )
 
-        'month' => 4,
-        'year'  => 2021,
-        'post_status' => 'publish'
+        // 'monthnum' => 4,
+        // 'year'  => 2021,
+        // 'post_status' => 'publish'
 
 
     ) );
