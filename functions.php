@@ -1,10 +1,11 @@
 <?php 
+require_once get_theme_file_path('/inc/tgm.php');
 
 if ( class_exists( 'Attachments' ) ) {
     require_once "lib/attachments.php";
 }
 
-if (site_url()=="http://demo.lwhh.com") {
+if (site_url() == "http://demo.lwhh.com") {
     define("VERSION", time());
 }else{
     define("VERSION",wp_get_theme()->get("Version"));
@@ -39,12 +40,25 @@ function alpha_bootstrapping(){
     );
     add_theme_support( "custom-logo", $alpha_custom_logo_defaults ); 
 
-    add_theme_support('post-formats', array('aside', 'gallery','video','audio','images','link','quote'));
+    // add_theme_support('post-formats', array('aside','video','audio','images','link','quote'));
+    add_theme_support(
+    'post-formats',
+    array(
+        'aside',
+        'image',
+        'video',
+        'quote',
+        'link',
+        'gallery',
+        'audio',
+    )
+);
 
     add_image_size('alpha-square', 400, 400, true);
     add_image_size('alpha-square-new1',401,401,array('left','top'));
     add_image_size('alpha-square-new2',500,500,array('center','center'));
     add_image_size('alpha-square-new3',600,600,array('right','center'));
+
 
     
 }
