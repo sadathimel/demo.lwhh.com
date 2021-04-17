@@ -77,6 +77,57 @@
 
                                                 the_content( );
 
+                                                if (get_post_format( ) == "image" && function_exists("the_field")):
+                                                ?>
+
+                                                <div> 
+                                                <strong>Camera Model: </strong><?php the_field("camera_model"); ?> <br>
+                                                <strong>Location: </strong>
+                                                    <?php 
+                                                    $alpha_location = the_field("location");
+                                                    echo esc_html($alpha_location); 
+                                                    ?> <br>
+
+                                                    <strong>Date:</strong><?php the_field("date");?><br>
+
+                                                    <?php if (get_field("licensed")):?>
+                                                        <?php 
+                                                            echo apply_filters("the_content", get_field("license_information"));
+                                                        ?>
+                                                    <?php endif;?>
+
+                                                    <p>
+                                                        <?php 
+                                                            $alpha_image = get_field("image");
+                                                            // echo esc_url(wp_get_attachment_image_src($alpha_image, 'alpha-square-new3')[0]);
+                                                            $alpha_image_details = wp_get_attachment_image_src( $alpha_image, 'alpha-square');
+
+                                                           echo "<img src = '". esc_url($alpha_image_details[0])."' />"
+                                                         ?>
+                                                    </p>
+
+                                                    <p>
+                                                        <?php 
+                                                         $file = the_field("attachment");
+                                                         if ($file) {
+                                                            $file_url = wp_get_attachment_url($file);
+                                                             $file_thumb = get_field("thumbnail", $file);
+
+                                                             if ($file_thumb) {
+                                                                $file_thumbnail_details = wp_get_attachment_image_src($file_thumb);
+                                                                echo "<a target = '_blank' href = '{$file_url}'><img src= '".esc_url($file_thumbnail_details[0])."'></a>";
+                                                                // echo "<a target = '_blank' href = '{$file_url}'><img src = '". esc_url($file_thumbnail_details[0])."' /></a>";
+                                                             }
+                                                         }
+                                                         ?>
+                                                    </p>                                               
+                                                </div>   
+                                                <?php
+                                                endif; 
+                                                ?>
+
+                                                <?php 
+
                                                 wp_link_pages( );
 
                                             ?>
