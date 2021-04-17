@@ -10,7 +10,7 @@ get_header();
 <?php get_template_part("/template-parts/common/hero");?>
 <div class="posts text-center">
 	<?php
-    $paged = get_query_var("paged") ? get_query_var("paged") : 1;
+    $paged = get_query_var("paged") ? : 1;
     // $posts_ids = array(15,18,9,2,80);
     $posts_per_page = 3;
     $total = 9;
