@@ -108,17 +108,20 @@
 
                                                     <p>
                                                         <?php 
-                                                         $file = the_field("attachment");
-                                                         if ($file) {
-                                                            $file_url = wp_get_attachment_url($file);
-                                                             $file_thumb = get_field("thumbnail", $file);
+                                                         $file = get_field("attachment");
 
+                                                         if ($file){
+                                                            $file_thumb = get_field("thumbnail", $file);
+                                                            $file_url = wp_get_attachment_url($file);
                                                              if ($file_thumb) {
-                                                                $file_thumbnail_details = wp_get_attachment_image_src($file_thumb);
-                                                                echo "<a target = '_blank' href = '{$file_url}'><img src= '".esc_url($file_thumbnail_details[0])."'></a>";
-                                                                // echo "<a target = '_blank' href = '{$file_url}'><img src = '". esc_url($file_thumbnail_details[0])."' /></a>";
-                                                             }
-                                                         }
+
+                                                                $file_thumbnail_details = wp_get_attachment_image_src($file_thumb);                             
+                                                                // echo "<a target = '_blank' href = '{$file_url}'><img src= '".esc_url($file_thumbnail_details[0])."'></a>";
+                                                               echo "<a target = '_blank' href = '{$file_url}'><img src = '".esc_url($file_thumbnail_details[0])."'></a>";
+                                                            } else{
+                                                                echo "<a target = '_blank' href = '{$file_url}'>{$file_url}</a>";
+                                                            }
+                                                        }
                                                          ?>
                                                     </p>                                               
                                                 </div>   
