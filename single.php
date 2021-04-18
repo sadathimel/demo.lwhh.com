@@ -123,7 +123,30 @@
                                                             }
                                                         }
                                                          ?>
-                                                    </p>                                               
+                                                    </p>
+
+                                                    <?php if (function_exists("the_field")): ?>
+                                                        <div>
+                                                            <h1><?php _e("Related Posts", "alpha") ?> </h1>
+                                                            <?php 
+                                                            $related_posts = get_field("related_posts");
+                                                            $alpha_rp = new WP_Query(array(
+                                                                'post__in' => $related_posts,
+                                                                'orderby'  => 'post__in',
+                                                            ));
+
+                                                            while ($alpha_rp->have_posts()) {
+                                                                $alpha_rp -> the_post();
+
+                                                                ?>
+                                                                <h4><?php the_title(); ?></h4>
+                                                                <?php
+                                                            }
+                                                            wp_reset_query();
+                                                             ?>
+                                                        </div>
+                                                    <?php endif ?>
+
                                                 </div>   
                                                 <?php
                                                 endif; 
@@ -152,6 +175,19 @@
                                                 <p>
                                                     <?php echo get_the_author_meta('description'); ?>
                                                 </p>
+
+                                                
+                                                <?php if (function_exists("the_field")): ?>
+                                                    <p>
+                                                        Facebook:
+                                                        URL: <?php the_field("facebook", "user_" .get_the_author_meta("id")); ?>
+                                                        <br/>
+                                                        Twitter:
+                                                        URL: <?php the_field("twitter", "user_" .get_the_author_meta("id")); ?>
+                                                        <br/>
+                                                    </p>    
+                                                <?php endif ?>
+                                                
                                             </div>
                                         </div>
                                     </div>
