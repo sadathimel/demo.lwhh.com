@@ -41,7 +41,7 @@ function cmb2_add_image_info_metabox() {
 
 	$cmb->add_field( array(
 		'name' => __( 'License Information', 'alpha' ),
-		'id' => $prefix . 'licensed_in',
+		'id' => $prefix . 'license_information',
 		'type' => 'textarea',
 		'attributes' => array(
 			'data-conditional-id' => $prefix . 'licensed',

@@ -77,18 +77,21 @@
 
                                                 the_content( );
 
+
+
                                                 if (get_post_format( ) == "image" && function_exists("the_field")):
                                                 ?>
 
-                                                <div> 
+                                                <div class = "metainfo"> 
                                                 <strong>Camera Model: </strong><?php the_field("camera_model"); ?> <br>
+
                                                 <strong>Location: </strong>
                                                     <?php 
-                                                    $alpha_location = the_field("location");
-                                                    echo esc_html($alpha_location); 
+                                                        $alpha_location = the_field("location");
+                                                        echo esc_html($alpha_location); 
                                                     ?> <br>
 
-                                                    <strong>Date:</strong><?php the_field("date");?><br>
+                                                <strong>Date:</strong><?php the_field("date");?> <br>
 
                                                     <?php if (get_field("licensed")):?>
                                                         <?php 
@@ -151,6 +154,41 @@
                                                 <?php
                                                 endif; 
                                                 ?>
+
+                                <?php
+                                if (get_post_format( ) == "image" && class_exists("CMB2")):
+
+                                 $alpha_camera_model = get_post_meta(get_the_ID(),"_alpha_camera_model",true); 
+                                 $alpha_location = get_post_meta(get_the_ID(),"_alpha_location",true); 
+                                 $alpha_date = get_post_meta(get_the_ID(),"_alpha_date",true); 
+                                 $alpha_licensed = get_post_meta(get_the_ID(),"_alpha_licensed",true); 
+                                 $alpha_license_information = get_post_meta(get_the_ID(),"_alpha_license_information",true); 
+                                ?>
+
+                                <div class = "metainfo"> 
+                                <strong>Camera Model: </strong><?php echo esc_html($alpha_camera_model); ?> <br>
+
+                                <strong>Location: </strong>
+                                    <?php 
+                                        echo esc_html($alpha_location); 
+                                    ?> <br>
+
+                                <strong>Date:</strong><?php echo esc_html($alpha_date); ?> <br>
+
+                                    <?php if ($alpha_licensed):?>
+                                        <?php 
+                                            echo apply_filters("the_content", $alpha_license_information);
+                                        ?>
+                                    <?php endif;?>
+
+
+                                </div>   
+                                <?php
+                                endif; 
+                                ?>
+
+
+
 
                                                 <?php 
 
