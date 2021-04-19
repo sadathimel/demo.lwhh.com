@@ -236,3 +236,10 @@ function alpha_modify_main_query($wpq) {
 add_action('pre_get_posts', 'alpha_modify_main_query');
 
 // add_filter('acf/settings/show_admin','__return_false');
+
+function alpha_admin_assets($hook){
+    if ("post.php" == $hook) {        
+        wp_enqueue_script('admin-js', get_theme_file_uri("assets/js/admin.js"), array('jquery'), VERSION, true);
+    }
+}
+add_action("admin_enqueue_scripts", "alpha_admin_assets");

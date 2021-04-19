@@ -3,6 +3,8 @@
 add_action( 'cmb2_init', 'cmb2_add_image_info_metabox' );
 function cmb2_add_image_info_metabox() {
 
+	
+
 	$prefix = '_alpha_';
 
 	$cmb = new_cmb2_box( array(
