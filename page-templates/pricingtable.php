@@ -8,18 +8,34 @@ get_header();
 	$pricing = get_post_meta(get_the_ID(), "_alpha_pt_pricing_table",true);
 ?>
 	
-  <?php 
-  	print_r($pricing);
-   ?>
 
    <div class="container">
    	<div class="row">
-   		
+   		<?php 
+   			foreach ($pricing as $ptc) :
+   		?>
+
+   		<div class="col-md-4">
+   			<h2><?php echo esc_html($ptc['_alpha_pt_priceing_caption']) ?></h2>
+   			<ul>
+   				<?php 
+   					foreach ($ptc['_alpha_pt_pricing_option'] as $pto) :
+   				?>
+   				<li><?php echo esc_html($pto); ?></li>
+   				<?php
+   				endforeach;
+   				?>
+   			</ul>
+   			<h3><?php echo esc_html($ptc['_alpha_pt_Price']); ?></h3>
+   		</div>
+
+   		<?php
+   			endforeach;
+   		?>
    	</div>
    </div>
 
 <?php 
 get_footer();
 
-?>
 
