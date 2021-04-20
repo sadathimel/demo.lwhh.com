@@ -60,7 +60,14 @@ function cmb2_add_image_info_metabox() {
 		'id' => $prefix . 'resume',
 		'type' => 'file',
 		'text' =>array(
-			'add_upload_file_text' => 'Upload'),
+			'add_upload_file_text' => __('Upload PDF File','alpha')
+		),
+		'query_args' => array(
+			'type' =>  array('application/pdf'),
+		),
+		'options' => array(
+			'url' => false
+		),
 	) );
 
 }
