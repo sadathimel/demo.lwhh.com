@@ -72,7 +72,7 @@ function alpha_register_required_plugins() {
 
 		array(
 			'name'      => 'CMB2 Conditionals',
-			'slug'      => 'acmb2-conditionals',
+			'slug'      => 'cmb2-conditionals',
 			'source'    => 'https://github.com/jcchavezs/cmb2-conditionals/archive/refs/heads/master.zip',
 		),
 

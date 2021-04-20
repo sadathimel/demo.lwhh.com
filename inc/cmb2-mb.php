@@ -3,10 +3,9 @@
 add_action( 'cmb2_init', 'cmb2_add_image_info_metabox' );
 function cmb2_add_image_info_metabox() {
 
+    $prefix = '_alpha_';
 	
-
-	$prefix = '_alpha_';
-
+   
 	$cmb = new_cmb2_box( array(
 		'id'           => $prefix . 'image_information',
 		'title'        => __( 'Image information', 'alpha' ),
@@ -48,6 +47,20 @@ function cmb2_add_image_info_metabox() {
 		'attributes' => array(
 			'data-conditional-id' => $prefix . 'licensed',
 		),
+	) );
+
+	$cmb->add_field( array(
+		'name' => __( 'image', 'cmb2' ),
+		'id' => $prefix . 'image',
+		'type' => 'file',
+	) );
+
+	$cmb->add_field( array(
+		'name' => __( 'Upload Resume', 'cmb2' ),
+		'id' => $prefix . 'resume',
+		'type' => 'file',
+		'text' =>array(
+			'add_upload_file_text' => 'Upload'),
 	) );
 
 }

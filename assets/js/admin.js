@@ -8,6 +8,10 @@
 		$('#_alpha_image_information').hide();
 	}
  });
+
+	if (alpha_pf.format != image) {
+		$('#_alpha_image_information').hide();
+	}
 })(jQuery);
 
 
