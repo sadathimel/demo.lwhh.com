@@ -6,6 +6,7 @@
 
 get_header();
 	$pricing = get_post_meta(get_the_ID(), "_alpha_pt_pricing_table",true);
+	$services = get_post_meta(get_the_ID(), "_alpha_services",true);
 ?>
 	
 
@@ -32,6 +33,23 @@ get_header();
    		<?php
    			endforeach;
    		?>
+   	</div>
+
+   	<div class="row">
+   		<?php 
+   			foreach ($services as $service):
+   				$alpha_service_icon = $service['_alpha_icon'];
+   		?>
+
+   		<div class="col-md-4">
+   			<i class="fa <?php echo esc_attr( $alpha_service_icon ); ?>"></i>
+   			<h2><?php echo esc_html($service['_alpha_title']); ?></h2>
+   			<?php echo apply_filters( "the_content", $service['_alpha_content'] ); ?>
+   		</div>		
+   		
+   		<?php
+   		endforeach;	
+   		 ?>
    	</div>
    </div>
 
