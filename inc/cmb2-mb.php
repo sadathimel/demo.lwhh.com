@@ -127,33 +127,33 @@ function alpha_add_services() {
 	$prefix = '_alpha_';
 
 	$cmb = new_cmb2_box( array(
-		'id'           => $prefix . 'services',
+		'id'           => $prefix . 'service',
 		'title'        => __( 'Services', 'alpha' ),
 		'object_types' => array( 'page', 'post' ),
 		'context'      => 'normal',
 		'priority'     => 'default',
 	) );
 
-	$service = $cmb->add_field( array(
-		'name' => __( 'service', 'alpha' ),
+	$group = $cmb->add_field( array(
+		'name' => __( 'Service', 'alpha' ),
 		'id' => $prefix . 'service',
 		'type' => 'group',
 	) );
 
-	$cmb->add_group_field($service, array(
-		'name' => __( 'title', 'alpha' ),
+	$cmb->add_group_field($group, array(
+		'name' => __( 'Title', 'alpha' ),
 		'id' => $prefix . 'title',
 		'type' => 'text',
 	) );
 
-	$cmb->add_group_field($service, array(
-		'name' => __( 'icon', 'alpha' ),
+	$cmb->add_group_field($group, array(
+		'name' => __( 'Icon', 'alpha' ),
 		'id' => $prefix . 'icon',
 		'type' => 'text',
 	) );
 
-	$cmb->add_group_field($service, array(
-		'name' => __( 'content', 'alpha' ),
+	$cmb->add_group_field($group, array(
+		'name' => __( 'Content', 'alpha' ),
 		'id' => $prefix . 'content',
 		'type' => 'text',
 	) );
