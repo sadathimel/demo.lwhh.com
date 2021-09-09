@@ -10,10 +10,17 @@
 <div class="posts text-center">
 
 	<?php
-        $_p = get_posts( [
-            'posts_per_page' => 2,
-            'post__in'       => [484, 643, 526, 537, 535],
+        $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+		$posts_per_page = 2;
+		$post_ids = [484, 643, 526, 537, 535];
+		$total = 9;
+        $_p    = get_posts( [
+            'posts_per_page' => $posts_per_page,
+            // 'post__in'       => $post_ids,
+			'author__in' => array(1),
+			'numberposts' => $total,
             'orderby'        => 'post__in',
+            'paged'          => $paged,
         ] );
 
         foreach ( $_p as $post ) {
@@ -30,11 +37,9 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-8">
 			<?php
-                the_posts_pagination( [
-                    "screen_reader_text" => ' ',
-                    "prev_text"          => "New Posts",
-                    "next_text"          => "Old Post",
-                ] );
+                echo paginate_links( [
+                    'total' => ceil($total/$posts_per_page),
+                ] )
             ?>
 		</div>
 	</div>
