@@ -15,9 +15,34 @@
         $post_ids       = [484, 643, 526, 537, 535];
         $total          = 9;
         $_p             = new WP_Query( [
-            'category_name'  => 'uncategorized',
+            // 'category_name' => 'new',
+            // 'tag' => 'special'
+            // 'category_name'  => 'uncategorized',
+
+            // 'tax_query' => array(
+            //     'relation' => 'AND',
+            //     array(
+            //         'taxonomy' => 'movie_genre',
+            //         'field'    => 'slug',
+            //         'terms'    => array( 'action', 'comedy' ),
+            //     ),
             'posts_per_page' => $posts_per_page,
             'paged'          => $paged,
+            'tax-query' => array(
+                'relation' => 'OR',
+                array(
+                    'taxonomy' => 'category',
+                    'field' => 'slug',
+                    'terms' => array('uncategorized'),
+                ),
+                array(
+                    'taxonomy' => 'post_tag',
+                    'field' => 'slug',
+                    'terms' => array('special'),
+                ),
+            )
+            
+
         ] );
 
         while ( $_p->have_posts() ) {
